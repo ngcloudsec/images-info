@@ -1,0 +1,29 @@
+name: Check images
+
+on:
+  push:
+  schedule:
+  - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  builder:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install oras
+      run: |
+        curl -LO https://github.com/oras-project/oras/releases/download/v0.16.0/oras_0.16.0_linux_amd64.tar.gz
+        mkdir -p oras-install/
+        tar -zxf oras_0.16.0_*.tar.gz -C oras-install/
+        mv oras-install/oras /usr/local/bin/
+        rm -rf oras_0.16.0_*.tar.gz oras-install/
+        oras version
+    - name: Download dep-scan
+      run: |
+        oras pull ghcr.io/ngcloudsec/vdb:v1 -o $VDB_HOME
+        oras pull ghcr.io/ngcloudsec/depscan:v3 -o $VDB_HOME
+        chmod +x ./depscan/depscan-linux-amd64
+        ./depscan/depscan-linux-amd64 --help
+      env:
+        VDB_HOME: depscan
