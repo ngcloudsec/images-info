@@ -1,13 +1,12 @@
 name: Check images
 
 on:
-  push:
   schedule:
   - cron: "0 */12 * * *"
   workflow_dispatch:
 
 jobs:
-  builder:
+  tester1:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -40,4 +39,110 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
-        name: depscan-results
+        name: depscan-results1
+
+  tester2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install oras
+      run: |
+        curl -LO https://github.com/oras-project/oras/releases/download/v0.16.0/oras_0.16.0_linux_amd64.tar.gz
+        mkdir -p oras-install/
+        tar -zxf oras_0.16.0_*.tar.gz -C oras-install/
+        mv oras-install/oras /usr/local/bin/
+        rm -rf oras_0.16.0_*.tar.gz oras-install/
+        oras version
+    - name: Download dep-scan
+      run: |
+        oras pull ghcr.io/ngcloudsec/vdb:v1 -o $VDB_HOME
+        oras pull ghcr.io/ngcloudsec/depscan:v3 -o $VDB_HOME
+        chmod +x ./depscan/depscan-linux-amd64
+      env:
+        VDB_HOME: depscan
+    - name: Perform scan
+      run: |
+        mkdir -p results
+        for i in `cat repo-list.txt`; do
+          echo "Scanning image $i"
+          ./depscan/depscan-linux-amd64 -t docker -i $i -o results/depscan-$i.json --no-error
+          echo "----------------------"
+        done
+        ls -ltr results
+      env:
+        VDB_HOME: depscan
+    - uses: actions/upload-artifact@v1
+      with:
+        path: ./results
+        name: depscan-results2
+
+  tester3:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install oras
+      run: |
+        curl -LO https://github.com/oras-project/oras/releases/download/v0.16.0/oras_0.16.0_linux_amd64.tar.gz
+        mkdir -p oras-install/
+        tar -zxf oras_0.16.0_*.tar.gz -C oras-install/
+        mv oras-install/oras /usr/local/bin/
+        rm -rf oras_0.16.0_*.tar.gz oras-install/
+        oras version
+    - name: Download dep-scan
+      run: |
+        oras pull ghcr.io/ngcloudsec/vdb:v1 -o $VDB_HOME
+        oras pull ghcr.io/ngcloudsec/depscan:v3 -o $VDB_HOME
+        chmod +x ./depscan/depscan-linux-amd64
+      env:
+        VDB_HOME: depscan
+    - name: Perform scan
+      run: |
+        mkdir -p results
+        for i in `cat repo-list.txt`; do
+          echo "Scanning image $i"
+          ./depscan/depscan-linux-amd64 -t docker -i $i -o results/depscan-$i.json --no-error
+          echo "----------------------"
+        done
+        ls -ltr results
+      env:
+        VDB_HOME: depscan
+    - uses: actions/upload-artifact@v1
+      with:
+        path: ./results
+        name: depscan-results3
+
+  tester4:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install oras
+      run: |
+        curl -LO https://github.com/oras-project/oras/releases/download/v0.16.0/oras_0.16.0_linux_amd64.tar.gz
+        mkdir -p oras-install/
+        tar -zxf oras_0.16.0_*.tar.gz -C oras-install/
+        mv oras-install/oras /usr/local/bin/
+        rm -rf oras_0.16.0_*.tar.gz oras-install/
+        oras version
+    - name: Download dep-scan
+      run: |
+        oras pull ghcr.io/ngcloudsec/vdb:v1 -o $VDB_HOME
+        oras pull ghcr.io/ngcloudsec/depscan:v3 -o $VDB_HOME
+        chmod +x ./depscan/depscan-linux-amd64
+      env:
+        VDB_HOME: depscan
+    - name: Perform scan
+      run: |
+        mkdir -p results
+        for i in `cat repo-list.txt`; do
+          echo "Scanning image $i"
+          ./depscan/depscan-linux-amd64 -t docker -i $i -o results/depscan-$i.json --no-error
+          echo "----------------------"
+        done
+        ls -ltr results
+      env:
+        VDB_HOME: depscan
+    - uses: actions/upload-artifact@v1
+      with:
+        path: ./results
+        name: depscan-results4
+        
