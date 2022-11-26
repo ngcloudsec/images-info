@@ -31,7 +31,7 @@ jobs:
         mkdir -p results
         for i in `cat repo-list.txt`; do
           echo "Scanning image $i"
-          ./depscan/depscan-linux-amd64 -t docker -i $i -o results/depscan-$i.json
+          ./depscan/depscan-linux-amd64 -t docker -i $i -o results/depscan-$i.json --no-error
           echo "----------------------"
         done
         ls -ltr results
