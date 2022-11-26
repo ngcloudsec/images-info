@@ -24,6 +24,20 @@ jobs:
         oras pull ghcr.io/ngcloudsec/vdb:v1 -o $VDB_HOME
         oras pull ghcr.io/ngcloudsec/depscan:v3 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
-        ./depscan/depscan-linux-amd64 --help
       env:
         VDB_HOME: depscan
+    - name: Perform scan
+      run: |
+        mkdir -p results
+        for i in `cat repo-list.txt`; do
+          echo "Scanning image $i"
+          ./depscan/depscan-linux-amd64 -t docker -i $i -o results/depscan-$i.json
+          echo "----------------------"
+        done
+        ls -ltr results
+      env:
+        VDB_HOME: depscan
+    - uses: actions/upload-artifact@v1
+      with:
+        path: ./results
+        name: depscan-results
