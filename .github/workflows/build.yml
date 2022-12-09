@@ -47,7 +47,7 @@ jobs:
     - name: Perform scan
       run: |
         mkdir -p results
-        for i in `cat repo-list.txt`; do
+        for i in `cat repo-list-2.txt`; do
           echo "Scanning image $i"
           ./depscan/depscan-linux-amd64 -t docker -i $i -o results/depscan-$i.json --no-error
           echo "----------------------"
@@ -74,7 +74,7 @@ jobs:
     - name: Perform scan
       run: |
         mkdir -p results
-        for i in `cat repo-list.txt`; do
+        for i in `cat repo-list-3.txt`; do
           echo "Scanning image $i"
           ./depscan/depscan-linux-amd64 -t docker -i $i -o results/depscan-$i.json --no-error
           echo "----------------------"
@@ -101,7 +101,7 @@ jobs:
     - name: Perform scan
       run: |
         mkdir -p results
-        for i in `cat repo-list.txt`; do
+        for i in `cat repo-list-4.txt`; do
           echo "Scanning image $i"
           ./depscan/depscan-linux-amd64 -t docker -i $i -o results/depscan-$i.json --no-error
           echo "----------------------"
