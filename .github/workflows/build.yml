@@ -22,8 +22,7 @@ jobs:
         mkdir -p results
         for i in `cat repo-list.txt`; do
           echo "Scanning image $i"
-          mkdir -p results/depscan-$i
-          ./depscan/depscan-linux-amd64 -t docker -i $i --reports-dir results/depscan-$i --no-error
+          ./depscan/depscan-linux-amd64 -t docker -i $i --reports-dir results/dep-$i --no-error
           echo "----------------------"
         done
         ls -ltr results
@@ -54,8 +53,7 @@ jobs:
         mkdir -p results
         for i in `cat repo-list.txt`; do
           echo "Scanning image $i"
-          mkdir -p results/depscan-$i
-          ./depscan/depscan-linux-amd64 -t docker -i $i --reports-dir results/depscan-$i --no-error
+          ./depscan/depscan-linux-amd64 -t docker -i $i --reports-dir results/dep-$i --no-error
           echo "----------------------"
         done
         ls -ltr results
@@ -85,8 +83,7 @@ jobs:
         mkdir -p results
         for i in `cat repo-list.txt`; do
           echo "Scanning image $i"
-          mkdir -p results/depscan-$i
-          ./depscan/depscan-linux-amd64 -t docker -i $i --reports-dir results/depscan-$i --no-error
+          ./depscan/depscan-linux-amd64 -t docker -i $i --reports-dir results/dep-$i --no-error
           echo "----------------------"
         done
         ls -ltr results
@@ -116,8 +113,7 @@ jobs:
         mkdir -p results
         for i in `cat repo-list.txt`; do
           echo "Scanning image $i"
-          mkdir -p results/depscan-$i
-          ./depscan/depscan-linux-amd64 -t docker -i $i --reports-dir results/depscan-$i --no-error
+          ./depscan/depscan-linux-amd64 -t docker -i $i --reports-dir results/dep-$i --no-error
           echo "----------------------"
         done
         ls -ltr results
