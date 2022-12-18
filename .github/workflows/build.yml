@@ -31,7 +31,6 @@ jobs:
         THREATDB_SERVER_URL: https://api.sbom.cx
         THREATDB_USERNAME: ${{ secrets.SBOM_API_USERNAME }}
         THREATDB_PASSWORD: ${{ secrets.SBOM_API_PASSWORD }}
-        SCAN_DEBUG_MODE: debug
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
