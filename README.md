@@ -9,8 +9,8 @@ Periodically scan top docker images on docker hub with [dep-scan](https://github
 ```bash
 export VDB_HOME=depscan
 mkdir -p $VDB_HOME
-oras pull ghcr.io/appthreat/vdb:v1 -o $VDB_HOME
-oras pull ghcr.io/appthreat/depscan:v3 -o $VDB_HOME
+oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
+oras pull ghcr.io/appthreat/depscan:v4 -o $VDB_HOME
 ```
 
 dep-scan is then invoked for each image in the [repo-list](repo-list.txt)
