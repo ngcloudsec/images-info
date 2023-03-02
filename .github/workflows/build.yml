@@ -10,8 +10,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Download dep-scan
       run: |
-        oras pull ghcr.io/appthreat/vdb:v1 -o $VDB_HOME
-        oras pull ghcr.io/appthreat/depscan:v3 -o $VDB_HOME
+        oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
+        oras pull ghcr.io/appthreat/depscan:v5 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
@@ -40,8 +40,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Download dep-scan
       run: |
-        oras pull ghcr.io/appthreat/vdb:v1 -o $VDB_HOME
-        oras pull ghcr.io/appthreat/depscan:v3 -o $VDB_HOME
+        oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
+        oras pull ghcr.io/appthreat/depscan:v4 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
@@ -70,8 +70,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Download dep-scan
       run: |
-        oras pull ghcr.io/appthreat/vdb:v1 -o $VDB_HOME
-        oras pull ghcr.io/appthreat/depscan:v3 -o $VDB_HOME
+        oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
+        oras pull ghcr.io/appthreat/depscan:v4 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
@@ -100,8 +100,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Download dep-scan
       run: |
-        oras pull ghcr.io/appthreat/vdb:v1 -o $VDB_HOME
-        oras pull ghcr.io/appthreat/depscan:v3 -o $VDB_HOME
+        oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
+        oras pull ghcr.io/appthreat/depscan:v4 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
