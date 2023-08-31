@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Trim CI agent
+      run: |
+        chmod +x free_disk_space.sh
+        ./free_disk_space.sh
     - name: Download dep-scan
       run: |
         oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
@@ -35,6 +39,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Trim CI agent
+      run: |
+        chmod +x free_disk_space.sh
+        ./free_disk_space.sh
     - name: Download dep-scan
       run: |
         oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
@@ -62,6 +70,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Trim CI agent
+      run: |
+        chmod +x free_disk_space.sh
+        ./free_disk_space.sh
     - name: Download dep-scan
       run: |
         oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
@@ -89,6 +101,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Trim CI agent
+      run: |
+        chmod +x free_disk_space.sh
+        ./free_disk_space.sh
     - name: Download dep-scan
       run: |
         oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
