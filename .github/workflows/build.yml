@@ -15,7 +15,7 @@ jobs:
     - name: Download dep-scan
       run: |
         oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
-        oras pull ghcr.io/appthreat/depscan:v4 -o $VDB_HOME
+        oras pull ghcr.io/owasp-dep-scan/dep-scan:v5 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
@@ -46,7 +46,7 @@ jobs:
     - name: Download dep-scan
       run: |
         oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
-        oras pull ghcr.io/appthreat/depscan:v4 -o $VDB_HOME
+        oras pull ghcr.io/owasp-dep-scan/dep-scan:v5 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
@@ -77,7 +77,7 @@ jobs:
     - name: Download dep-scan
       run: |
         oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
-        oras pull ghcr.io/appthreat/depscan:v4 -o $VDB_HOME
+        oras pull ghcr.io/owasp-dep-scan/dep-scan:v5 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
@@ -108,7 +108,7 @@ jobs:
     - name: Download dep-scan
       run: |
         oras pull ghcr.io/appthreat/vdb:v5 -o $VDB_HOME
-        oras pull ghcr.io/appthreat/depscan:v4 -o $VDB_HOME
+        oras pull ghcr.io/owasp-dep-scan/dep-scan:v5 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
