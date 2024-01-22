@@ -18,8 +18,7 @@ jobs:
         oras pull ghcr.io/owasp-dep-scan/dep-scan:v5 -o $VDB_HOME
         chmod +x ./depscan/depscan-linux-amd64
       env:
-        VDB_HOME: depscan
-        SCAN_DEBUG_MODE: debug
+        VDB_HOME: depscan        
     - name: Perform scan
       run: |
         mkdir -p results
@@ -31,6 +30,8 @@ jobs:
         ls -ltr results
       env:
         VDB_HOME: depscan
+        SCAN_DEBUG_MODE: debug
+        CDXGEN_DEBUG_MODE: debug
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
