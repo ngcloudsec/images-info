@@ -19,6 +19,7 @@ jobs:
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
+        SCAN_DEBUG_MODE: debug
     - name: Perform scan
       run: |
         mkdir -p results
