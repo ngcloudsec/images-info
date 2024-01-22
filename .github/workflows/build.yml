@@ -30,7 +30,6 @@ jobs:
         ls -ltr results
       env:
         VDB_HOME: depscan
-        COLUMNS: 270
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
@@ -51,7 +50,6 @@ jobs:
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
-        COLUMNS: 270
     - name: Perform scan
       run: |
         mkdir -p results
@@ -63,7 +61,6 @@ jobs:
         ls -ltr results
       env:
         VDB_HOME: depscan
-        COLUMNS: 270
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
@@ -84,7 +81,6 @@ jobs:
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
-        COLUMNS: 270
     - name: Perform scan
       run: |
         mkdir -p results
@@ -116,7 +112,6 @@ jobs:
         chmod +x ./depscan/depscan-linux-amd64
       env:
         VDB_HOME: depscan
-        COLUMNS: 270
     - name: Perform scan
       run: |
         mkdir -p results
