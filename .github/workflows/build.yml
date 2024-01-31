@@ -29,7 +29,8 @@ jobs:
         done
         ls -ltr results
       env:
-        VDB_HOME: depscan        
+        VDB_HOME: depscan
+        COLUMNS: 270
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
@@ -61,6 +62,7 @@ jobs:
         ls -ltr results
       env:
         VDB_HOME: depscan
+        COLUMNS: 270
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
@@ -92,6 +94,7 @@ jobs:
         ls -ltr results
       env:
         VDB_HOME: depscan
+        COLUMNS: 270
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
@@ -123,6 +126,7 @@ jobs:
         ls -ltr results
       env:
         VDB_HOME: depscan
+        COLUMNS: 270
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
