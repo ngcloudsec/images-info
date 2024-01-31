@@ -29,9 +29,7 @@ jobs:
         done
         ls -ltr results
       env:
-        VDB_HOME: depscan
-        SCAN_DEBUG_MODE: debug
-        CDXGEN_DEBUG_MODE: debug
+        VDB_HOME: depscan        
     - uses: actions/upload-artifact@v1
       with:
         path: ./results
